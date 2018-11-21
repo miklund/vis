@@ -5,7 +5,7 @@
  * A dynamic, browser-based visualization library.
  *
  * @version 4.21.0
- * @date    2018-11-20
+ * @date    2018-11-21
  *
  * @license
  * Copyright (C) 2011-2017 Almende B.V, http://almende.com
@@ -14765,7 +14765,7 @@ var Edge = function () {
 
       // get the via node from the edge type
       var viaNode = this.edgeType.getViaNode();
-      var arrowData = {};
+      var arrowData = { isHollow: values.hollowArrow };
 
       // restore edge targets to defaults
       this.edgeType.fromPoint = this.edgeType.from;
