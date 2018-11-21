@@ -27343,6 +27343,7 @@ var EdgeBase = function () {
 
       // draw shadow if enabled
       this.enableShadow(ctx, values);
+      ctx.stroke();
       ctx.fill();
 
       // disable shadows for other elements.
