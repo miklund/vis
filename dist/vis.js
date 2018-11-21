@@ -27249,6 +27249,7 @@ var EdgeBase = function () {
       var scaleFactor = void 0;
       var type = void 0;
       var lineWidth = values.width;
+      var fill = void 0;
 
       if (position === 'from') {
         node1 = this.from;
@@ -27256,17 +27257,20 @@ var EdgeBase = function () {
         guideOffset = 0.1;
         scaleFactor = values.fromArrowScale;
         type = values.fromArrowType;
+        fill = values.fromArrowFill;
       } else if (position === 'to') {
         node1 = this.to;
         node2 = this.from;
         guideOffset = -0.1;
         scaleFactor = values.toArrowScale;
         type = values.toArrowType;
+        fill = values.toArrowFill;
       } else {
         node1 = this.to;
         node2 = this.from;
         scaleFactor = values.middleArrowScale;
         type = values.middleArrowType;
+        fill = values.middleArrowFill;
       }
 
       // if not connected to itself
@@ -27312,7 +27316,7 @@ var EdgeBase = function () {
       var yi = arrowPoint.y - length * 0.9 * Math.sin(angle);
       var arrowCore = { x: xi, y: yi };
 
-      return { point: arrowPoint, core: arrowCore, angle: angle, length: length, type: type };
+      return { point: arrowPoint, core: arrowCore, angle: angle, length: length, type: type, fill: fill };
     }
 
     /**
@@ -27336,10 +27340,13 @@ var EdgeBase = function () {
 
       // draw shadow if enabled
       this.enableShadow(ctx, values);
-      if (arrowData.isHollow) {
-        console.log('edge was hollow');
+      if (arrowData.fill === 'solid') {
+        console.log('arrow head has solid fill');
+        ctx.fill();
+      } else if (arrowData.fill === 'nofill') {
+        console.log('arrow head has nofill');
       } else {
-        console.log('edge was solid');
+        console.log('arrow head fill value is unknown');
         ctx.fill();
       }
       // disable shadows for other elements.
