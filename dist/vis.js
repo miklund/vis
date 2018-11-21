@@ -27346,8 +27346,9 @@ var EdgeBase = function () {
       if (arrowData.fill === 'solid') {
         console.log('arrow head has solid fill');
         ctx.fill();
-      } else if (arrowData.fill === 'nofill') {
-        console.log('arrow head has nofill');
+      } else if (arrowData.fill === 'stroke') {
+        console.log('arrow head has stroke');
+        ctx.stroke();
       } else {
         console.log('arrow head fill value is unknown');
         ctx.fill();
