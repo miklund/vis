@@ -14500,12 +14500,15 @@ var Edge = function () {
         toArrow: toArrow,
         toArrowScale: this.options.arrows.to.scaleFactor,
         toArrowType: this.options.arrows.to.type,
+        toArrowFill: this.options.arrows.to.fill,
         middleArrow: middleArrow,
         middleArrowScale: this.options.arrows.middle.scaleFactor,
         middleArrowType: this.options.arrows.middle.type,
+        middleArrowFill: this.options.arrows.middle.fill,
         fromArrow: fromArrow,
         fromArrowScale: this.options.arrows.from.scaleFactor,
         fromArrowType: this.options.arrows.from.type,
+        fromArrowFill: this.options.arrows.from.fill,
         arrowStrikethrough: this.options.arrowStrikethrough,
         color: inheritsColor ? undefined : this.options.color.color,
         inheritsColor: inheritsColor,
@@ -14765,7 +14768,7 @@ var Edge = function () {
 
       // get the via node from the edge type
       var viaNode = this.edgeType.getViaNode();
-      var arrowData = { isHollow: values.hollowArrow };
+      var arrowData = {};
 
       // restore edge targets to defaults
       this.edgeType.fromPoint = this.edgeType.from;
